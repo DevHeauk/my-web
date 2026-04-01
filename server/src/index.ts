@@ -7,8 +7,6 @@ import todoRoutes from './routes/todo';
 
 dotenv.config();
 
-console.log('[BOOT] Server module loaded');
-
 const app = express();
 const PORT = process.env.PORT || 4000;
 const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';

@@ -5,11 +5,10 @@
     "dockerfilePath": "Dockerfile"
   },
   "deploy": {
-    "startCommand": "sleep 3 && npx prisma db push --accept-data-loss && npx pm2-runtime ecosystem.config.js",
+    "startCommand": "npx prisma db push --accept-data-loss && node dist/index.js",
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 10,
     "healthcheckPath": "/health",
-    "healthcheckTimeout": 100,
-    "zeroDowntime": false
+    "healthcheckTimeout": 180
   }
 }

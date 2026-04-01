@@ -1,0 +1,154 @@
+.item {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.item:hover {
+  box-shadow: var(--shadow-sm);
+  border-color: var(--color-primary-light);
+}
+
+.item.completed {
+  opacity: 0.65;
+}
+
+.item.completed:hover {
+  border-color: var(--color-border);
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.checkbox {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+  flex-shrink: 0;
+  background: var(--color-surface);
+}
+
+.checkbox:checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox:hover {
+  border-color: var(--color-primary-light);
+}
+
+.checkbox:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
+
+.title {
+  flex: 1;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.item.completed .title {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+.timer {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-sm);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.timerExpired {
+  background: var(--color-error);
+  color: white;
+}
+
+.doneLabel {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-sm);
+  background: var(--color-success);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: white;
+  white-space: nowrap;
+}
+
+.deleteButton {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  opacity: 0;
+}
+
+.item:hover .deleteButton {
+  opacity: 1;
+}
+
+.deleteButton:hover {
+  color: var(--color-error);
+  background: rgba(201, 107, 107, 0.08);
+}
+
+.deleteButton:focus-visible {
+  opacity: 1;
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
+
+.bottomRow {
+  margin-top: var(--space-sm);
+  padding-left: 34px;
+}
+
+@media (max-width: 767px) {
+  .deleteButton {
+    opacity: 1;
+  }
+
+  .timer {
+    font-size: 0.75rem;
+    padding: 2px var(--space-xs);
+  }
+}

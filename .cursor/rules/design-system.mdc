@@ -1,0 +1,86 @@
+---
+description: 디자인 시스템 - 따뜻하고 부드러우며 심플한 디자인 토큰과 가이드라인
+alwaysApply: true
+---
+
+# Design System
+
+## Color Palette
+
+따뜻하고 부드러운 톤을 유지한다.
+
+### Primary Colors
+- `--color-primary`: `#D4856B` (Warm Terracotta)
+- `--color-primary-light`: `#E8A990`
+- `--color-primary-dark`: `#B56A50`
+
+### Neutral Colors
+- `--color-bg`: `#FAF8F5` (Warm White)
+- `--color-bg-secondary`: `#F3EDE7` (Warm Gray)
+- `--color-surface`: `#FFFFFF`
+- `--color-text`: `#3D3530` (Warm Black)
+- `--color-text-secondary`: `#7A6E66`
+- `--color-text-muted`: `#A89E96`
+- `--color-border`: `#E8E0D8`
+
+### Accent Colors
+- `--color-accent`: `#C4956A` (Warm Gold)
+- `--color-success`: `#7BA677`
+- `--color-warning`: `#D4A84B`
+- `--color-error`: `#C96B6B`
+
+## Typography
+
+간결하고 읽기 쉬운 서체를 사용한다.
+
+- **본문 서체**: `'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif`
+- **제목 서체**: 본문과 동일 (weight로 구분)
+- **기본 크기**: `16px` (1rem)
+- **줄 높이**: 본문 `1.6`, 제목 `1.3`
+
+### Type Scale
+| 용도 | 크기 | 굵기 |
+|------|------|------|
+| h1 | 2rem (32px) | 700 |
+| h2 | 1.5rem (24px) | 600 |
+| h3 | 1.25rem (20px) | 600 |
+| body | 1rem (16px) | 400 |
+| small | 0.875rem (14px) | 400 |
+| caption | 0.75rem (12px) | 400 |
+
+## Spacing
+
+8px 단위 기반 시스템을 사용한다.
+
+- `--space-xs`: `4px`
+- `--space-sm`: `8px`
+- `--space-md`: `16px`
+- `--space-lg`: `24px`
+- `--space-xl`: `32px`
+- `--space-2xl`: `48px`
+- `--space-3xl`: `64px`
+
+## Border Radius
+
+부드러운 인상을 주기 위해 적절한 곡률을 사용한다.
+
+- `--radius-sm`: `6px`
+- `--radius-md`: `10px`
+- `--radius-lg`: `16px`
+- `--radius-full`: `9999px`
+
+## Shadow
+
+그림자는 최소한으로, 부드럽게 사용한다.
+
+- `--shadow-sm`: `0 1px 3px rgba(61, 53, 48, 0.06)`
+- `--shadow-md`: `0 4px 12px rgba(61, 53, 48, 0.08)`
+- `--shadow-lg`: `0 8px 24px rgba(61, 53, 48, 0.10)`
+
+## Transition
+
+자연스러운 전환을 위한 기본 값을 사용한다.
+
+- `--transition-fast`: `150ms ease`
+- `--transition-base`: `250ms ease`
+- `--transition-slow`: `400ms ease`

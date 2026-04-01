@@ -1,0 +1,60 @@
+---
+description: HTML/CSS 코딩 표준 - 마크업과 스타일 작성 규칙
+globs: "**/*.{html,css,scss,module.css}"
+alwaysApply: false
+---
+
+# HTML/CSS Standards
+
+## HTML
+
+- DOCTYPE 선언을 항상 포함한다: `<!DOCTYPE html>`
+- `<html lang="ko">`를 명시한다
+- `<meta name="viewport" content="width=device-width, initial-scale=1.0">`를 포함한다
+- `<meta charset="UTF-8">`을 포함한다
+- 태그는 소문자로 작성한다
+- 빈 태그도 닫는다: `<img />`, `<br />`
+- 속성값은 큰따옴표로 감싼다
+
+## CSS
+
+### 작성 순서 (권장)
+
+속성은 다음 순서로 그룹핑한다:
+
+1. 레이아웃 (`display`, `position`, `grid`, `flex`)
+2. 박스 모델 (`width`, `height`, `margin`, `padding`)
+3. 타이포그래피 (`font`, `color`, `text-align`)
+4. 시각 효과 (`background`, `border`, `box-shadow`, `opacity`)
+5. 기타 (`transition`, `animation`, `cursor`)
+
+### CSS Custom Properties 사용
+
+디자인 시스템에서 정의한 CSS 변수를 항상 사용한다. 하드코딩된 색상값, 간격값을 직접 쓰지 않는다.
+
+```css
+/* 잘못된 예 */
+.card {
+  color: #3D3530;
+  padding: 16px;
+  border-radius: 10px;
+}
+
+/* 올바른 예 */
+.card {
+  color: var(--color-text);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+}
+```
+
+### 클래스 네이밍
+
+- BEM 방식 권장: `block__element--modifier`
+- 또는 CSS Modules / Tailwind 등 프레임워크 컨벤션을 따른다
+- 의미 있는 이름을 사용한다 (`.box1`, `.red-text` 금지)
+
+### 미디어 쿼리
+
+- 컴포넌트 단위로 미디어 쿼리를 작성한다 (파일 하단에 모아두지 않는다)
+- 디자인 시스템의 breakpoint 변수를 사용한다

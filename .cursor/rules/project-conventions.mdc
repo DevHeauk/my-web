@@ -1,0 +1,64 @@
+---
+description: 프로젝트 일반 규칙 - 코딩 컨벤션, 파일 구조, 금지 사항
+alwaysApply: true
+---
+
+# Project Conventions
+
+## 언어
+
+- 코드 내 주석과 커밋 메시지는 **한국어**로 작성한다
+- 변수명, 함수명, 클래스명 등 코드 식별자는 **영어**로 작성한다
+- 사용자에게 보이는 UI 텍스트는 **한국어**로 작성한다
+
+## 금지 사항
+
+- 코드, 주석, UI 어디에서든 **이모지(emoji) 사용 금지**
+- `!important` 남용 금지 (정말 필요한 경우에만, 사유를 주석으로 명시)
+- `any` 타입 사용 금지 (TypeScript 사용 시)
+- `console.log` 디버깅 코드를 커밋하지 않는다
+- 인라인 스타일(`style=""`) 사용을 지양한다
+
+## 파일 네이밍
+
+| 유형 | 규칙 | 예시 |
+|------|------|------|
+| 컴포넌트 | PascalCase | `Header.tsx`, `UserCard.tsx` |
+| 유틸리티 | camelCase | `formatDate.ts`, `useAuth.ts` |
+| 스타일 | kebab-case | `global-styles.css`, `header.module.css` |
+| 상수/설정 | kebab-case | `site-config.ts`, `constants.ts` |
+| 페이지/라우트 | kebab-case | `about-us.tsx`, `contact.tsx` |
+
+## 코드 스타일
+
+- 들여쓰기: **2 spaces**
+- 세미콜론: 사용
+- 따옴표: 작은따옴표(`'`) 우선
+- 한 파일의 최대 길이: **300줄** (초과 시 분리)
+- 한 함수의 최대 길이: **50줄** (초과 시 분리)
+
+## 폴더 구조 (권장)
+
+```
+src/
+  components/     # 재사용 가능한 UI 컴포넌트
+    common/       # 버튼, 입력 등 기본 요소
+    layout/       # Header, Footer, Sidebar 등
+  pages/          # 페이지 단위 컴포넌트
+  styles/         # 글로벌 스타일, CSS 변수
+  utils/          # 유틸리티 함수
+  hooks/          # 커스텀 훅 (React 사용 시)
+  assets/         # 이미지, 폰트 등 정적 리소스
+  types/          # TypeScript 타입 정의
+public/           # 정적 파일
+```
+
+## Git Commit Message
+
+```
+<type>: <설명>
+
+[본문 (선택)]
+```
+
+타입: `feat`, `fix`, `style`, `refactor`, `docs`, `chore`, `test`

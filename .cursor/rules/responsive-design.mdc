@@ -1,0 +1,61 @@
+---
+description: 반응형 디자인 규칙 - PC, 태블릿, 모바일 대응
+alwaysApply: true
+---
+
+# Responsive Design
+
+모든 UI는 반드시 PC, 태블릿, 모바일 세 환경을 고려해야 한다.
+
+## Breakpoints
+
+Mobile-first 접근법을 사용한다. 기본 스타일은 모바일 기준으로 작성하고, 큰 화면으로 확장한다.
+
+| 구간 | 범위 | 대상 |
+|------|------|------|
+| Mobile | ~ 767px | 스마트폰 |
+| Tablet | 768px ~ 1023px | 태블릿, 소형 노트북 |
+| Desktop | 1024px ~ | PC, 대형 모니터 |
+
+```css
+/* Mobile-first: 기본 스타일은 모바일 */
+
+/* Tablet */
+@media (min-width: 768px) { }
+
+/* Desktop */
+@media (min-width: 1024px) { }
+
+/* Large Desktop (필요시) */
+@media (min-width: 1440px) { }
+```
+
+## Layout Container
+
+```css
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md); /* 모바일: 16px */
+}
+
+@media (min-width: 768px) {
+  .container { padding: 0 var(--space-lg); } /* 태블릿: 24px */
+}
+
+@media (min-width: 1024px) {
+  .container { padding: 0 var(--space-xl); } /* PC: 32px */
+}
+```
+
+## 규칙
+
+1. **모든 이미지**에 `max-width: 100%`를 적용한다
+2. **터치 타겟**은 최소 44x44px을 유지한다 (모바일 접근성)
+3. **폰트 크기**는 모바일에서 최소 14px 이상이어야 한다
+4. **가로 스크롤**이 발생하지 않도록 한다 (`overflow-x: hidden` 남용 금지, 근본 원인을 해결)
+5. **Grid/Flex** 레이아웃을 사용하고, float 기반 레이아웃은 사용하지 않는다
+6. **고정 너비(px)**를 가급적 사용하지 않는다. 상대 단위(%, rem, vw)를 선호한다
+7. **네비게이션**은 모바일에서 햄버거 메뉴 또는 바텀 시트로 전환한다
+8. 레이아웃 변경 시 **시각적 계층 구조**가 유지되는지 반드시 확인한다

@@ -1,0 +1,42 @@
+---
+description: 성능 최적화 가이드라인 - 빠르고 효율적인 웹 경험
+alwaysApply: true
+---
+
+# Performance
+
+## 이미지
+
+- WebP 또는 AVIF 포맷을 우선 사용한다
+- `<img>` 태그에 `width`와 `height`를 명시하여 Layout Shift를 방지한다
+- Lazy loading을 적용한다: `loading="lazy"` (뷰포트 밖 이미지)
+- 히어로 이미지 등 중요 이미지에는 `fetchpriority="high"`를 사용한다
+- 반응형 이미지: `srcset`과 `sizes`를 활용한다
+
+## 폰트
+
+- 웹 폰트는 `font-display: swap`을 사용한다
+- 폰트 파일은 woff2 포맷을 우선 사용한다
+- 사용하는 글자 범위가 제한적이면 `unicode-range`로 서브셋한다
+- 시스템 폰트 fallback을 항상 지정한다
+
+## CSS/JS
+
+- 사용하지 않는 CSS를 정기적으로 제거한다
+- Critical CSS는 인라인으로 포함하는 것을 고려한다
+- JS 번들은 코드 스플리팅을 적용한다
+- 서드파티 스크립트는 `async` 또는 `defer`를 사용한다
+
+## Core Web Vitals 목표
+
+| 지표 | 목표 | 설명 |
+|------|------|------|
+| LCP | < 2.5s | 가장 큰 콘텐츠 렌더링 |
+| INP | < 200ms | 다음 페인트 상호작용 |
+| CLS | < 0.1 | 누적 레이아웃 이동 |
+
+## 일반 원칙
+
+- 불필요한 리렌더링과 DOM 조작을 최소화한다
+- 스크롤/리사이즈 이벤트에 throttle 또는 debounce를 적용한다
+- 대용량 리스트는 가상 스크롤을 고려한다

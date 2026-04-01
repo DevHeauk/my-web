@@ -25,4 +25,4 @@ COPY server/prisma ./prisma
 
 EXPOSE 4000
 
-CMD ["sh", "-c", "timeout 30 npx prisma db push --accept-data-loss --skip-generate || true; node dist/index.js"]
+CMD ["node", "dist/boot.js"]

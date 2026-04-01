@@ -25,4 +25,4 @@ COPY server/prisma ./prisma
 
 EXPOSE 4000
 
-CMD ["sh", "-c", "sleep 3 && npx prisma db push --accept-data-loss && node dist/index.js"]
+CMD ["sh", "-c", "npx prisma db push --accept-data-loss 2>&1 && echo 'DB sync done, starting server...' && node dist/index.js"]

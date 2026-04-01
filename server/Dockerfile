@@ -17,15 +17,12 @@ FROM node:20-alpine
 WORKDIR /app
 
 COPY --from=builder /app/package*.json ./
-RUN npm ci --omit=dev
+RUN npm ci
 
 COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
-COPY --from=builder /app/node_modules/prisma ./node_modules/prisma
-COPY --from=builder /app/node_modules/@prisma/engines ./node_modules/@prisma/engines
 COPY --from=builder /app/dist ./dist
 COPY server/prisma ./prisma
-COPY server/ecosystem.config.js ./
 
 EXPOSE 4000
 
-CMD ["sh", "-c", "sleep 3 && npx prisma db push --accept-data-loss && npx pm2-runtime ecosystem.config.js"]
+CMD ["sh", "-c", "sleep 3 && npx prisma db push --accept-data-loss && node dist/index.js"]

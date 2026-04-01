@@ -25,10 +25,7 @@ COPY --from=builder /app/node_modules/@prisma/engines ./node_modules/@prisma/eng
 COPY --from=builder /app/dist ./dist
 COPY server/prisma ./prisma
 COPY server/ecosystem.config.js ./
-COPY server/start.sh ./
-
-RUN chmod +x start.sh
 
 EXPOSE 4000
 
-CMD ["./start.sh"]
+CMD ["sh", "-c", "sleep 3 && npx prisma db push --accept-data-loss && npx pm2-runtime ecosystem.config.js"]

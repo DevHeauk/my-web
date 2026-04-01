@@ -7,6 +7,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  password  String
+  todos     Todo[]
+  createdAt DateTime @default(now())
+}
+
 model Todo {
   id          String    @id @default(cuid())
   title       String
@@ -14,6 +23,8 @@ model Todo {
   completedAt DateTime?
   dueTime     DateTime?
   repeatDays  Int[]     @default([])
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 }

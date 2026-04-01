@@ -30,7 +30,7 @@ router.post('/', async (req: Request, res: Response) => {
 });
 
 router.put('/:id', async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = req.params.id as string;
   const { title, completed, dueTime, repeatDays } = req.body;
 
   const data: Record<string, unknown> = {};
@@ -51,7 +51,7 @@ router.put('/:id', async (req: Request, res: Response) => {
 });
 
 router.delete('/:id', async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = req.params.id as string;
 
   try {
     await prisma.todo.delete({ where: { id } });
